@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    russian_mutators (0.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    bacon (1.2.0)
+    bacon-colored_output (1.0.1)
+      bacon
+    excon (0.16.7)
+    nokogiri (1.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bacon
+  bacon-colored_output
+  excon
+  nokogiri
+  russian_mutators!
