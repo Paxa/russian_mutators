@@ -42,16 +42,20 @@ module Russian
         word.sub(/ек$/, 'ки')
       elsif word.end_with?('ок') && word.length > 4
         word.sub(/ок$/, 'ки')
+      elsif word.end_with?('ной', 'вой', 'той', 'мой', 'пой', 'сой') && word.length > 4
+        word.sub(/ой$/, "ые")
       elsif word.end_with?('ый', 'ой') && word.length > 4 # существительное от прилогательного
-        word.sub(/ый$/, "ые").sub(/ой$/, "ые")
-      #elsif word.end_with?('ий')
-      #  word.sub(/ий$/, "ие")
+        word.sub(/ый$/, "ые").sub(/ой$/, "ои")
+      elsif word.end_with?('щий', 'кий', 'ший', 'жий', 'ний')
+        word.sub(/ий$/, "ие")
       elsif word.end_with?('нин')
         word.sub(/нин$/, "не")
       elsif word.end_with?(?й)
         word.sub(/й$/, ?и)
-      elsif word.end_with?('ень')
+      elsif word.end_with?('вень', 'рень', 'день', 'чень')
         word.sub(/ень$/, 'ни')
+      elsif word.end_with?('ень')
+        word.sub(/ень$/, "ени")
       elsif word.end_with?(?ь)
         word.sub(/ь$/, ?и)
       elsif word.end_with?(*(SOFT_CONSONANT + [?к, ?г, ?х, ?ж, ?ш]))
@@ -70,6 +74,8 @@ module Russian
         word.sub(/ая$/, "ые")
       elsif word.end_with?(?a)
         word.sub(/а$/, ?ы)
+      elsif word.end_with?("ень")
+        word.sub(/ень$/, "ени")
       elsif word.end_with?(?ь) || word.end_with?(?я)
         word.sub(/.$/, ?и)
       else
@@ -86,6 +92,8 @@ module Russian
         word.sub(/ое$/, "ые")
       elsif word.end_with?('ще', 'че', 'це')
         word.sub(/.$/, ?а)
+      elsif word.end_with?('щее', 'шее')
+        word.sub(/ее$/, "ие")
       elsif word.end_with?(?е)
         word.sub(/.$/, ?я)
       else
